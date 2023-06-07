@@ -3,6 +3,7 @@ const app = Vue.createApp({
         return {
             startedVue: 'started learning Vue',
             masteredVue: 'mastered learning Vue',
+            message: '<span>Hello World</span>',
             vueLink: 'https://vuejs.org'
         }
     },
