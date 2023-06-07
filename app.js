@@ -1,15 +1,17 @@
 const app = Vue.createApp({
     data() {
         return {
-            displayData: { name: 'Jude Eze', age: 20 },
-            imgUrl: 'https://picsum.photos/id/237/200/300'
-        }
+        counter: 0,
+        };
     },
     methods: {
-        displayNumber() {
-            return Math.random()
-        }
+        addUp() {
+            return this.counter++
+        },
+        reduce() {
+            return this.counter--
+        } 
     }
-})
+});
 
-app.mount('#assignment')
+app.mount('#events');
