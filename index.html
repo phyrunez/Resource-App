@@ -23,6 +23,7 @@
       <p>Result: {{ counter }}</p>
       <!-- <input type="text" v-bind:value="name" v-on:input="setName($event)"> -->
       <input type="text" v-model="name">
+      <input type="text" v-model="lastName">
       <button type="button" v-on:click="resetInput">Reset input</button>
       <p>Your Name: {{ outputFullname('Eze') }}</p>
       <p>Your Name: {{ fullname }}</p>
