@@ -5,7 +5,19 @@ const app = Vue.createApp({
       name: ''
     };
   },
+  computed: {
+    fullname() {
+        console.log('Running everytime again')
+        if(this.name === '') return ''
+        return this.name + ' ' + 'Eze'
+    }
+  },
   methods: {
+    outputFullname(lastName) {
+        console.log('Running everytime')
+        if(this.name === '') return ''
+        return this.name + " " + lastName
+    },
     setName(event) {
       this.name = event.target.value;
     },
