@@ -20,6 +20,7 @@
       <h2>Events in Action</h2>
       <button v-on:click.left="addUp(10)">Add 10</button>
       <button v-on:click.right="reduce(5)">Remove 5</button>
+      <p v-once>Initial Couter Value: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
       <input type="text" v-on:input="setName($event, 'Eze')" v-on:keyup.enter="confirmedName">
       <p>Display Name: {{ confirmName }}</p>
