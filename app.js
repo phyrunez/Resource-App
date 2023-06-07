@@ -1,19 +1,15 @@
 const app = Vue.createApp({
     data() {
         return {
-            startedVue: 'started learning Vue',
-            masteredVue: 'mastered learning Vue',
-            message: '<span>Hello World</span>',
-            vueLink: 'https://vuejs.org'
+            displayData: { name: 'Jude Eze', age: 20 },
+            imgUrl: 'https://picsum.photos/id/237/200/300'
         }
     },
     methods: {
-        outputGoal() {
-            const randomNumber = Math.random()
-            if(randomNumber < 0.5) return this.startedVue
-            else return this.masteredVue
+        displayNumber() {
+            return Math.random()
         }
     }
 })
-app.mount('#user-goal')
 
+app.mount('#assignment')
