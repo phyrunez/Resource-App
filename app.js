@@ -1,21 +1,25 @@
 const app = Vue.createApp({
-    data() {
-        return {
-            description: 'Learning Events Binding!',
-            name: '',
-            anotherName: ''
-        }
+  data() {
+    return {
+      counter: 0,
+      name: ''
+    };
+  },
+  methods: {
+    setName(event) {
+      this.name = event.target.value;
     },
-    methods: {
-        showAlert() {
-            alert(this.description)
-        },
-        changeOutput(e) {
-           this.name = e.target.value 
-        },
-        changeAnotherNameOutput(e) {
-            this.anotherName = e.target.value
-        }
+    add(num) {
+      this.counter = this.counter + num;
+    },
+    reduce(num) {
+      this.counter = this.counter - num;
+      // this.counter--;
+    },
+    resetInput() {
+        this.name = ''
     }
-})
-app.mount('#assignment')
+  }
+});
+
+app.mount('#events');
