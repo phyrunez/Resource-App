@@ -1,30 +1,21 @@
 const app = Vue.createApp({
     data() {
         return {
-            result: 0,
-        }
-    },
-    watch: {
-        result(value) {
-            if(value > 0) {
-                setTimeout(function(){
-                    value = 0
-                    console.log(value)
-                }, 5000)
-            }
-        }
-    },
-    computed: {
-        displayMessage() {
-            if(this.result <= 37) return 'Not there yet'
-            if(this.result > 37) return 'Too Much!'
+            boxASelected: false,
+            boxBSelected: false,
+            boxCSelected: false
         }
     },
     methods: {
-        addUp(num) {
-            this.result = this.result + num
-            console.log(this.result)
+        boxSelected(box) {
+            if(box === 'A') {
+                this.boxASelected = true
+            }else if(box === 'B') {
+                this.boxBSelected = true
+            }else if(box === 'C') {
+                this.boxCSelected = true
+            }
         }
     }
 })
-app.mount('#assignment')
+app.mount('#styling')
