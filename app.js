@@ -2,7 +2,8 @@ const app = Vue.createApp({
   data() {
     return { 
         goal: '',
-        goals: [] 
+        goals: [],
+        dummyObj: { name: 'Jude', age: 24 } 
     };
   },
   methods: {
