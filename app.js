@@ -1,26 +1,25 @@
 const app = Vue.createApp({
     data() {
         return {
-            boxASelected: false,
-            boxBSelected: false,
-            boxCSelected: false
+            enteredVal: '',
+            state: false,
+            enteredColor: ''
         }
     },
     computed: {
-        boxAClasses() {
-            return { active: this.boxASelected }
+        userClasses() {
+            if(this.enteredVal === 'user1') {
+                return { user1: true }
+            }else if(this.enteredVal === 'user2') {
+                return { user2: true }
+            }
         }
     },
     methods: {
-        boxSelected(box) {
-            if(box === 'A') {
-                this.boxASelected = !this.boxASelected
-            }else if(box === 'B') {
-                this.boxBSelected = !this.boxBSelected
-            }else if(box === 'C') {
-                this.boxCSelected = !this.boxCSelected
-            }
+        changeState() {
+            this.state = !this.state
+            console.log(this.state)
         }
     }
 })
-app.mount('#styling')
+app.mount("#assignment")
