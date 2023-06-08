@@ -2,13 +2,16 @@ const app = Vue.createApp({
   data() {
     return { 
         goal: '',
-        goals: [],
-        dummyObj: { name: 'Jude', age: 24 } 
+        goals: []
     };
   },
   methods: {
     addGoal() {
         this.goals.push(this.goal)
+        console.log(this.goals)
+    },
+    removeGoal(i) {
+        this.goals.splice(i, 1)
         console.log(this.goals)
     }
   }
