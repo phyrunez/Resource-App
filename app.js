@@ -6,12 +6,12 @@ const app = Vue.createApp({
     },
     watch: {
         result(value) {
-            if(value++) {
-                setTimeout(() => {
+            if(value > 0) {
+                setTimeout(function(){
                     value = 0
+                    console.log(value)
                 }, 5000)
             }
-            console.log(value)
         }
     },
     computed: {
