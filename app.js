@@ -1,46 +1,43 @@
 const app = Vue.createApp({
     data() {
         return {
-        currentUserInput: '',
-        message: 'Vue is great!',
-        };
+            friendsList: [
+                { name: 'Manuel Lorenz', phone: '09023187770', email: 'manuel@localhost.com' },
+                { name: 'Julie Jones', phone: '0993002900', email: 'julie@localhost.com' }
+            ],
+            showDetails: false
+        }
+    },
+    
+})
+
+app.component('friend-contact', {
+    template: `
+        <li>
+          <h2>{{ friend.name }}</h2>
+          <button @click="showFriendDetails">Show Details</button>
+          <ul v-if="showDetails">
+            <li><strong>Phone:</strong> {{ friend.phone }}</li>
+            <li><strong>Email:</strong> {{ friend.email }}</li>
+          </ul>
+        </li>
+    `,
+    data() {
+        return {
+            showDetails: false,
+            friend: { 
+                id: 1,
+                name: 'Manuel Lorenz', 
+                phone: '09023187770', 
+                email: 'manuel@localhost.com' 
+            }
+        }
     },
     methods: {
-        saveInput(event) {
-            this.currentUserInput = event.target.value;
-        },
-        setText() {
-            //   this.message = this.currentUserInput;
-            this.message = this.$refs.userInput.value
-            console.dir(this.$refs.userInput)
-            console.log(typeof(this.$refs.userInput))
-        },
-    },
-    beforeCreate() {
-        alert('Before Create!!')
-    },
-    created() {
-        alert('Created!!')
-    },
-    beforeMount() {
-        alert('Before Mount!!')
-    },
-    mounted() {
-        alert('Mounted!!')
-    },
-    beforeUpdate() {
-        alert('Before Update!!')
-    },
-    updated() {
-        alert('Updated!!')
-    },
-    beforeUnmount() {
-        alert('Before Unmount!!')
-    },
-    unmounted() {
-        alert('Unmounted!!')
-    },
-});
+        showFriendDetails() {
+            this.showDetails = !this.showDetails
+        }
+    }
+})
 
-app.mount('#app');
-
+app.mount('#app')
