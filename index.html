@@ -14,52 +14,13 @@
   </head>
   <body>
     <header>
-      <h1>Monster Slayer</h1>
+      <h1>Vue Behind The Scenes</h1>
     </header>
-    <div id="game">
-      <section id="monster" class="container">
-        <h2>Monster Health</h2>
-        <div class="healthbar">
-          <div class="healthbar__value" :style="monsterHealthWidth"></div>
-        </div>
-      </section>
-      <section id="player" class="container">
-        <h2>Your Health</h2>
-        <div class="healthbar">
-          <div class="healthbar__value" :style="playerHealthWidth"></div>
-        </div>
-      </section>
-
-      <section class="container" v-if="winner">
-        <h2>Game Over</h2>
-        <h3 v-if="winner === 'monster'">You Lost!</h3>
-        <h3 v-else-if="winner === 'player'">You Won!</h3>
-        <h3 v-else-if="winner === 'draw'">Its a Draw!</h3>
-        <button @click="restartGame">Restart Game</button>
-      </section>
-
-      <section id="controls" v-else>
-        <button @click="attackMonster">ATTACK</button>
-        <button :disabled="mayUseSpecialAttack" @click="specialAttack">SPECIAL ATTACK</button>
-        <button @click="playerHeals">HEAL</button>
-        <button @click="surrender">SURRENDER</button>
-      </section>
-      <section id="log" class="container">
-        <h2>Battle Log</h2>
-        <ul>
-          <li v-for="logMsg in logMessages">
-            <span :class="{'log--player': logMsg.actionBy === 'player', 'log--monster': logMsg.actionBy === 'monster'}">
-              {{ logMsg.actionBy === 'player' ? 'Player' : 'Monster' }}
-            </span>
-            <span v-if="logMsg.actionType === 'heal'">
-              heals himself for <span class="log--heal">{{ logMsg.actionValue }}</span>
-            </span>
-            <span v-else>
-              attacked for <span class="log--damage">{{ logMsg.actionValue }}</span>
-            </span>
-          </li>
-        </ul>
-      </section>
-    </div>
+    <section id="app">
+      <h2>How Vue Works</h2>
+      <input type="text" @input="saveInput">
+      <button @click="setText">Set Text</button>
+      <p>{{ message }}</p>
+    </section>
   </body>
 </html>
